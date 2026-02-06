@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Sales Guide Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            font-size: 14.4px; /* Reduced by 10% from default 16px */
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 1.6em; /* Reduced proportionally */
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+            font-size: 1.3em; /* Reduced proportionally */
+        }
+        h3 {
+            color: #5d6d7e;
+            margin-top: 15px;
+            font-size: 1.1em; /* Reduced proportionally */
+        }
+        .checkbox-item {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        .checkbox-item label {
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer;
+            vertical-align: middle;
+            font-size: 14.4px; /* Reduced by 10% from 16px */
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .button-container {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+            z-index: 100;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12.6px; /* Reduced by 10% from 14px */
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .reset-btn {
+            background-color: #e74c3c;
+        }
+        .reset-btn:hover {
+            background-color: #c0392b;
+        }
+        .pool-btn {
+            background-color: #16a085;
+        }
+        .pool-btn:hover {
+            background-color: #138d75;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .pool-link {
+            background-color: #16a085;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .pool-link:hover {
+            background-color: #138d75;
+            text-decoration: none;
+        }
+        blockquote {
+            border-left: 4px solid #bdc3c7;
+            padding-left: 15px;
+            margin: 15px 0;
+            color: #5d6d7e;
+        }
+        .small-text {
+            font-size: 0.765em; /* 0.85 * 0.9 = 0.765 (10% reduction applied) */
+        }
+        .small-section {
+            font-size: 0.81em; /* 0.9 * 0.9 = 0.81 (10% reduction applied) */
+        }
+        .collapsible {
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 12.6px; /* Reduced by 10% from 14px */
+            border-radius: 5px;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        .collapsible:hover {
+            background-color: #2980b9;
+        }
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+        .collapsible.active:after {
+            content: "\2212";
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 0 15px;
+            margin-bottom: 10px;
+            border-radius: 0 0 5px 5px;
+        }
+        .collapsible-content.show {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <button onclick="window.open('Pool-Script-Checklist.html', '_blank')" class="pool-btn">🏊 Open Pool Script</button>
+            <button onclick="window.open('SALT-Script-Checklist.html', '_blank')" style="background-color: #e67e22;">🧂 Open SALT Script</button>
+            <button onclick="window.print()">🖨️ Print Checklist</button>
+            <button onclick="resetChecklist()" class="reset-btn">🔄 Reset All Checkboxes</button>
+        </div>
+
+        <h1>2026 Sales Guide</h1>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="introduction" onchange="saveCheckboxState()">
+            <label for="introduction">Introduction</label>
+        </div>
+        <div class="section">
+            <p><strong>Standard greeting</strong></p>
+            <p>Hello, this is <strong>(YOUR NAME)</strong> and thank you for calling LawnStarter / Lawn Love /HomeGnome. Would you mind sharing a bit about what you're looking for?</p>
+
+            <p><strong>SMS Greeting</strong></p>
+            <p>Hi, this is ________ with LawnStarter/ Lawn Love, you were just texting my colleague and they asked me to give you a call. How can I help?</p>
+
+            <p>I appreciate you sharing that information with me. <a href="Callback-BBS-Checklist.html" target="_blank" style="background-color: #9b59b6; color: white; padding: 5px 10px; border-radius: 4px; font-weight: bold;">Callback BBS</a></p>
+
+            <blockquote>
+                <p><strong>Non-Mowing Customers</strong></p>
+                <p><a href="Pool-Script-Checklist.html" target="_blank" class="pool-link">Pool Script</a> <a href="SALT-Script-Checklist.html" target="_blank" style="background-color: #e67e22; color: white; padding: 5px 10px; border-radius: 4px; font-weight: bold;">SALT Script</a> <a href="EC-Script-Checklist.html" target="_blank" style="background-color: #27ae60; color: white; padding: 5px 10px; border-radius: 4px; font-weight: bold;">EC Flow</a></p>
+            </blockquote>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="acknowledge-response" onchange="saveCheckboxState()">
+            <label for="acknowledge-response">Acknowledge the response and focus on the main interest</label>
+        </div>
+        <div class="section">
+            <h3>Examples:</h3>
+            <ul>
+                <li>Yes! We can take care of all of that!</li>
+                <li>I can help you with that.</li>
+                <li>Let me look into that for you.</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="verification-1" onchange="saveCheckboxState()">
+            <label for="verification-1">Verification</label>
+        </div>
+        <div class="section">
+            <p>Is this the correct address <strong>(house number, street name, zip code)</strong>?</p>
+            <ol>
+                <li><strong>Phone number (mobile or landline number)</strong></li>
+                <li><strong>Address (Street number, name and Zip)</strong></li>
+            </ol>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="anything-else" onchange="saveCheckboxState()">
+            <label for="anything-else">Does the customer need anything else while we're out there? (Examples welcome)</label>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="leading-questions" onchange="saveCheckboxState()">
+            <label for="leading-questions">Leading Questions & Availability Check (Not Required)</label>
+        </div>
+        <div class="section">
+            <p>Let's first see if we have a Pro available in your area.</p>
+            <p>Okay, it looks like we (do or do not) have a Pro in your area.</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="price-bucket" onchange="saveCheckboxState()">
+            <label for="price-bucket">Price Bucket (If the customer is rushing you can cover later)</label>
+        </div>
+        <div class="section">
+            <p><strong><u>(Skip this line if you aren't booking mowing)</u></strong> Our <strong>lawn mowing services include mowing, trimming edges, and blowing off paved surfaces.</strong></p>
+            <p><strong><u>(Cover this for any service)</u></strong> We also offer you a <strong>free mobile app & web login</strong> where you can request <strong>additional landscape services, make any change to your account, and it's the fastest way to contact our Support Team.</strong></p>
+
+            <div class="small-section">
+                <h2>Tips</h2>
+                <h3>(If the customer already told you, don't ask, just confirm)</h3>
+                <h3>(If the customer is rushing or pushing towards price, you can just provide the options/pricing instead of asking for each detail.)</h3>
+            </div>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="scope-frequency" onchange="saveCheckboxState()">
+            <label for="scope-frequency">Scope and Frequency (Ask however you want)</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>-What area needs service? Full, front, back?</li>
+                <li>-How often? Weekly, bi-weekly? Monthly (when available)</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="base-price" onchange="saveCheckboxState()">
+            <label for="base-price">Provide Base Price + $3.99 Trust and Safety fee</label>
+        </div>
+        <div class="section">
+            <button type="button" class="collapsible">📋 Handling Frequency Objections</button>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Flexible: reschedule, skip, pause options.</li>
+                    <li>Manage on app or communicate with pro</li>
+                    <li>Can change frequency as needed</li>
+                    <li>Regular maintenance = healthier lawn</li>
+                </ul>
+            </div>
+
+            <button type="button" class="collapsible">💰 Handling Price Objections</button>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Reliability: Vetted professionals</li>
+                    <li>Quality check</li>
+                    <li>Consider promos</li>
+                    <li>Convenience: Can use as needed or as back up</li>
+                    <li>Short-term commitment</li>
+                    <li>Hold a spot</li>
+                </ul>
+            </div>
+
+            <button type="button" class="collapsible">💳 Customer asks about T&S</button>
+            <div class="collapsible-content">
+                <p><a href="https://docs.google.com/document/u/0/d/17xbK1jJ_GU4_NAa-pyvxwK2BtDba4UmaL-5K20mYh_M/edit" class="underline">Full T&S Guide</a></p>
+                <ul>
+                    <li>What it is?
+                        <ul>
+                            <li>Help to cover pro vetting process</li>
+                            <li>Helps us to mediate potential property damage</li>
+                        </ul>
+                    </li>
+                    <li>Why do I have to pay it?
+                        <ul>
+                            <li>Standard cost for any company</li>
+                            <li>Most companies roll it into the price; we itemize it for transparency</li>
+                            <li>Most local providers don't provide any coverage.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <button type="button" class="collapsible">💵 Customer asks about Tax</button>
+            <div class="collapsible-content">
+                <p>This price does not include taxes. Taxes are based on the local laws in your area.</p>
+            </div>
+
+            <button type="button" class="collapsible">👤 Not DM</button>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Probing
+                        <ul>
+                            <li>Is (DM) available?
+                                <ul>
+                                    <li>Yes: Offer to speak with them</li>
+                                    <li>No: Does (DM) have specific needs or concerns?</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Educate on value: Flexibility, platform benefits (app, quality check, schedule flexibility)</li>
+                    <li>Hold a spot (required)</li>
+                </ul>
+            </div>
+
+            <button type="button" class="collapsible">🔧 Doesn't want Subcontractors</button>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Local vetted pros</li>
+                    <li>Our platform helps local pros with their business</li>
+                    <li><span class="underline">Explain</span> the Quality check</li>
+                    <li>Change pro anytime</li>
+                    <li>Short-term commitment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="two-day-window" onchange="saveCheckboxState()">
+            <label for="two-day-window">Two-day Window</label>
+        </div>
+        <div class="section">
+            <p>Provide the earliest or preferred two-day window (days + dates)</p>
+
+            <p><strong>EARLY / LATE SERVICE WINDOW TIPS</strong></p>
+            <ul>
+                <li><strong>If the customer expresses flexibility with the schedule, acknowledge their agreement, mark both options, and proceed accordingly.</strong></li>
+            </ul>
+
+            <p><strong>QA GUIDELINES</strong></p>
+            <ul>
+                <li><strong>Set the expectation that there are no guarantees when it comes to the earlier window and priority list.</strong></li>
+            </ul>
+
+            <button type="button" class="collapsible">📅 Scheduling Objections</button>
+            <div class="collapsible-content">
+                <p><a href="https://docs.google.com/document/d/1qqHWiQ66IsJ6tenzUT0nMLZip6Xfk75qTpBORJlm0T4/edit?tab=t.0" class="underline">Full Scheduling Objections Guide</a></p>
+                <ul>
+                    <li>Doesn't want to wait all day
+                        <ul>
+                            <li>Contactless: No need to be home</li>
+                            <li>Two-day window allows for adjustments due to weather and routing</li>
+                            <li>Explain: Delayed billing/quality check (3-4 days)</li>
+                        </ul>
+                    </li>
+                    <li>Needs to be home for access
+                        <ul>
+                            <li>Can leave notes for gate codes or instructions.</li>
+                            <li>Message pro in advance</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="3-cut-minimum" onchange="saveCheckboxState()">
+            <label for="3-cut-minimum">3-Cut Minimum & 48-HR Rescheduling Notice</label>
+        </div>
+        <div class="section">
+            <p><span class="highlight">If the customer already mentioned only wanting a one-time mow, acknowledge and find out why before discussing the following:</span></p>
+            <p>-For mowing, we have a 3-cut minimum, so you are only committing to 3 cuts. If at any point you would like to make changes to your schedule, just let us know 48 hrs before the next scheduled cut.</p>
+
+            <button type="button" class="collapsible">✂️ 3 Mow Minimum Common Objections</button>
+            <div class="collapsible-content">
+                <p><a href="https://docs.google.com/document/d/17Svn_fSnMDDlwBluW8k_u0QrDfxxfumH4_ZgmyX-lco/edit?tab=t.0" class="underline">Full 3 Mow Minimum Objections Guide</a></p>
+                <ul>
+                    <li><strong>Only needs 1</strong>
+                        <ul>
+                            <li>Selling/moving
+                                <ul>
+                                    <li>Identify when if if they have moved or sold already
+                                        <ul>
+                                            <li>Single mows with other companies are often the same price</li>
+                                            <li>Short-term commitment</li>
+                                            <li>Get on the schedule now (sense of urgency)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Seasonal/Event
+                                <ul>
+                                    <li>Schedule flexibility: don't need to use all 3 mows now.</li>
+                                    <li>Short-term commitment</li>
+                                    <li>Single mows with other companies are often the same price</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>HOA
+                        <ul>
+                            <li>Long grass: recurring service help restore the look of the lawn</li>
+                            <li>Use as back up if it happens again</li>
+                            <li>Get on the schedule now (sense of urgency)</li>
+                        </ul>
+                    </li>
+                    <li>Quality concerns
+                        <ul>
+                            <li>Short-term commitment</li>
+                            <li>Change pro anytime</li>
+                            <li>Explain Quality check</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <button type="button" class="collapsible">⏰ 48 Hour Objections</button>
+            <div class="collapsible-content">
+                <p><a href="https://docs.google.com/document/d/1PP_AoJOGBem-4VynGHzr-M0pmVg_gbNu4wdbphNBLys/edit?tab=t.0" class="underline">Full 48 Hour Objections Guide</a></p>
+                <ul>
+                    <li><strong>Event, HOA etc...</strong>
+                        <ul>
+                            <li>Fastest turn around time</li>
+                            <li>Can message pro for availability once assigned</li>
+                        </ul>
+                    </li>
+                    <li><strong>Why do I have to wait?</strong>
+                        <ul>
+                            <li>Routes are planned in advance</li>
+                            <li>Gives us time to find a pro</li>
+                            <li>Hold a spot</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="long-grass-fee" onchange="saveCheckboxState()">
+            <label for="long-grass-fee">Long Grass Fee (Industry Standard)</label>
+        </div>
+        <div class="section">
+            <p>How long is the grass? Above 9 inches? Above 15 inches?</p>
+            <p>We do follow an industry standard long grass policy. If the grass is over 9", we would assess a fee up to the full amount of the <span class="underline">base mowing price</span>. If your lawn is over 15", your crew will submit a quote for you to approve before servicing. Does that make sense? Great, I just want to make you aware, so there are no surprises.</p>
+
+            <button type="button" class="collapsible">🌿 Long Grass Objections</button>
+            <div class="collapsible-content">
+                <p><a href="https://docs.google.com/document/d/17NdZYnlHp-QGtAvkRU2g-Epmn8IqG7iblyyvhj86Hes/edit?tab=t.0" class="underline">Full Long Grass Objections Guide</a></p>
+                <ul>
+                    <li><strong>Why do I need to pay extra?</strong>
+                        <ul>
+                            <li>We compensate our pros for additional work.</li>
+                            <li>Overgrown lawns take more time and create more wear and tear on equipment.</li>
+                        </ul>
+                    </li>
+                    <li><strong>How do I know you aren't just charging extra?</strong>
+                        <ul>
+                            <li>Our provides are required to supply photos to us if they claim long grass</li>
+                            <li>We send you an email as soon as the fee is assessed.</li>
+                            <li>We have a 3 day quality check before we charge your card.</li>
+                            <li>If you disagree with a long grass charge, you may dispute it and we will review the photos.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="small-section">
+                <h2>Objection Handling Tips</h2>
+                <ul>
+                    <li><strong>Acknowledge or show understanding</strong></li>
+                    <li><strong>Clarify or probe to find out why</strong></li>
+                    <li><strong>Don't lead with limitations and policies</strong></li>
+                    <li><strong>Address the objection with value (what is the benefit?)</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section small-section" id="cross-selling-section">
+            <h2 class="underline">Cross-selling Tips</h2>
+            <p><a href="https://docs.google.com/document/u/0/d/1qaTguDgHWY-r2fieQ3D22GJcZh1iKVoiqHdaVqnLcWs/edit" class="underline">IQ CLEANUP TIPS</a> <a href="https://docs.google.com/document/u/0/d/1GfxVPQjg43bS7CsIHACP1au8P1zpGHEUN08us3iwpO4/edit" class="underline">CROSS-SELLING TIPS</a> <a href="https://docs.google.com/document/d/11UJflyAAhy0G7Ua5WIJMTiNCc4mfSIURQRcAViPUCZ8/edit?usp=sharing" class="underline">Spring Lawn Care Tips & Tricks</a> <a href="https://docs.google.com/document/d/1tVbYDyu61PzLv9ToEzlx2G2yfNWL-cjGG-eFl6Gcxks/edit?usp=sharing" class="underline">Required Manual Quotes Questions</a></p>
+
+            <div class="small-text">
+                <p><strong>Objection Handling Tips</strong></p>
+                <p><strong>When the customer expresses interest in an additional service and changes their mind, address the concern:</strong></p>
+                <ul>
+                    <li><strong>Acknowledge or show understanding</strong></li>
+                    <li><strong>Clarify or probe to find out why</strong></li>
+                    <li><strong>Add value or leverage qualified promotions.</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="leaf-removal" onchange="saveCheckboxState()">
+            <label for="leaf-removal">Leaf Removal (IQ)</label>
+        </div>
+        <div class="section">
+            <p><strong>Are there any leaves or small twigs on your lawn?</strong></p>
+            <p><strong>When the customer states they need to be picked up schedule the IQ Cleanup</strong></p>
+            <p>I can provide you with a quote for leaf cleanup now so that you have a clear expectation of the service without any surprises.</p>
+            <p><strong>Mow & Mulch Expectation:</strong> If the crew arrives and there's an excessive amount of leaves that need picked up before we can mow, we'll need to quote you for the cleanup, wait for your approval, which could prolong your service completion</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="lawn-treatment" onchange="saveCheckboxState()">
+            <label for="lawn-treatment">Lawn Treatment (IQ)</label>
+        </div>
+        <div class="section">
+            <p><strong><span class="highlight">(Skip this for New York Customers)</span></strong></p>
+            <p>We offer a fertilizer and weed control package to keep your lawn healthy and green. I can get you the price on that!</p>
+
+            <h3>If yes:</h3>
+            <p>This package offers fertilizer, weed control and pre-emergent. For the best results:</p>
+            <ul>
+                <li>The service is scheduled for 7/8 rounds year</li>
+                <li>They go out every 4-6 weeks (6-8 in TX)</li>
+                <li>You won't be charged until the service is complete.</li>
+                <li>The price is $</li>
+                <li>Can I add that for you now?</li>
+            </ul>
+
+            <p><strong>If no:</strong> Remind the customer that it can be added anytime in the future and that a weed free lawn helps reduce mowing costs.</p>
+            <p class="note">(Optional Added context: Weeds are the first to grow on a lawn, making the lawn appear overgrown or even warrant additional fees. Keeping weeds in check minimizes overall growth reducing the need for more frequent mowing.)</p>
+
+            <p><a href="https://docs.google.com/spreadsheets/d/11dqqT8_4X-eP5L9La02J6jx1NMzPxHs2lc7gSaX-QpY/edit?usp=sharing" class="underline">LT Cross-selling Playbook</a> <a href="https://docs.google.com/document/d/19IWrZzzXnHxajjdft3aMozexOlAVhIybwbrs68zoTZc/edit?usp=sharing" class="underline">Lawn Treatment VS Aeration; Verbal Cues</a></p>
+            <ul>
+                <li><a href="https://docs.google.com/document/u/0/d/1_ld3gK4nsIWMLxhvQKVW55pHIpJIu622XEvboB79ki0/edit" class="underline">LT CROSS-SELLING TIPS</a></li>
+            </ul>
+
+            <p><strong>New York Customers</strong></p>
+            <p>We currently only offer fertilization in your area.</p>
+            <ul>
+                <li><a href="https://docs.google.com/document/u/0/d/1OvE0fVFPvjZZT0K7G7mvjMzXBHlusCNqQfRCyCwNkd8/edit" class="underline">LT EXPECTATIONS TIPS</a></li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="instant-quote-pitch" onchange="saveCheckboxState()">
+            <label for="instant-quote-pitch">(Instant Quote Pitch)</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>(Required: highlight that it's free and immediate)</li>
+                <li>Offer immediate pricing on Flower Beds AND Bush Trimming (and/or mowing if applicable)</li>
+            </ul>
+            <p><a href="https://docs.google.com/document/u/0/d/1f7_HVFXaLM9CVGgteyrnmPrrZvnHtoTUA1L5kEyQJDw/edit" class="underline">Flower bed Weeding Tips</a> <a href="https://docs.google.com/document/u/0/d/1MdgozzRh6EVwW7MdPoEehM4jn1dEfhx0pHT1G6k3duU/edit" class="underline">BUSH TRIMMING CROSS-SELLING TIPS</a></p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="additional-services" onchange="saveCheckboxState()">
+            <label for="additional-services">Additional Services (If LTRS is not in Admin, cover MQ examples below)</label>
+        </div>
+        <div class="section">
+            <p>Besides the services we've discussed, in most areas we also offer free quotes on additional services such as grub treatment, lawn disease treatment, mosquito prevention, and much more. Would you like me to check these additional services to determine whether you qualify for a free quote?</p>
+
+            <p><strong>MQ Examples:</strong> Mulching, gutter cleaning, tree trimming, clean ups, Sod installation and other landscaping services</p>
+
+            <p><a href="https://docs.google.com/document/d/1Qc1av55XJZIt83u4Rd_z0mvceUcb4bh7f-UzEHP2_X8/edit?usp=sharing" class="underline">Services Descriptions</a></p>
+            <ul>
+                <li><a href="https://docs.google.com/document/u/0/d/1928VnApO2OvgXwEP8u955x_AlSVDbIqJsFYhWma7540/edit" class="underline">ADDITIONAL SERVICES CROSS-SELLING TIPS</a></li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="educational-statement" onchange="saveCheckboxState()">
+            <label for="educational-statement">EDUCATIONAL STATEMENT (After finished with Cross Sales)</label>
+        </div>
+        <div class="section">
+            <p><strong>(IF NO)</strong> No worries! You can always add most of the additional services anytime via the app / portal. If a service isn't available there, our support team will be happy to assist you further.</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="verification-2" onchange="saveCheckboxState()">
+            <label for="verification-2">Verification</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Verify the First and Last Name</li>
+                <li>I have your email <strong>(PHONETICALLYSPELLEDOUT@ALWAYS.com)</strong></li>
+                <li>And your <strong>CELL PHONE # is</strong> (555-555-5555)
+                    <ul>
+                        <li>Landlines acceptable.</li>
+                    </ul>
+                </li>
+            </ul>
+            <blockquote>
+                <p><a href="https://www.thoughtco.com/nato-phonetic-alphabet-1691031" class="underline">Phonetic Alphabet</a></p>
+            </blockquote>
+            <ul>
+                <li><a href="https://docs.google.com/document/u/0/d/1PVpcH-VZhV6nHG-QTFECy3HcyucZs_qg8a95rQgsVYU/edit" class="underline">VERIFICATION TIPS</a></li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="property-details" onchange="saveCheckboxState()">
+            <label for="property-details">Property Details</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Are there pets outdoors?</li>
+                <li>During the time of service, pets should be secured.</li>
+                <li>We request that you pick up any pet waste that may be left on the property.</li>
+                <li>In the event that excessive amounts are found, the crew will mow around them.</li>
+            </ul>
+            <ul>
+                <li>Do you have any gates on your property?</li>
+            </ul>
+            <p><strong>IF PROPERTY GATE,</strong> is it wide enough to allow a riding mower through?</p>
+            <ul>
+                <li>Is the property in a gated community?</li>
+            </ul>
+            <p><strong>IF COMMUNITY GATE,</strong> is there a gate code or special instructions for accessing the gate?</p>
+            <ul>
+                <li>Are there any other details we need to know before we go out?</li>
+            </ul>
+            <p><strong>Include special access details in the "Special Neighborhood Access" field on the work order. Let's also keep in mind the importance of being concise.</strong></p>
+            <ul>
+                <li><a href="https://docs.google.com/document/u/0/d/1gHsfkPOZOdy7pUNDStsOFA2BZhs1Fz2vPQ8LD23y5wM/edit" class="underline">PROPERTY DETAILS QA GUIDELINES</a></li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="order-recap" onchange="saveCheckboxState()">
+            <label for="order-recap">Order Recap</label>
+        </div>
+        <div class="section">
+            <p>To confirm, we are scheduling you for a weekly / biweekly / or monthly basic mowing. The cost of a weekly/ biweekly frequency is <strong>(PRICE),</strong> plus a $3.99 Trust & Safety Fee. This is scheduled within the earliest two-day window, <strong>Wednesday or Thursday</strong> starting <strong>July 20th / or 21th.</strong></p>
+
+            <p>We're also scheduling ____________, ____________, and ______________. <strong>(Fill in the details of all additional services you added to your order here, including frequency expectations)</strong></p>
+
+            <p><strong>Lawn Treatment Customers (Reviewed Only When LT is Secured)</strong></p>
+            <p>Additionally, be looking for an email that includes details about your first lawn treatment application and what to expect.</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="billing" onchange="saveCheckboxState()">
+            <label for="billing">Billing</label>
+        </div>
+        <div class="section">
+            <p>Perfect, all I need is a payment method to schedule you. We accept major credit and debit cards, and we won't charge you until 3 days after the service is complete.</p>
+
+            <p>I'm sending over a secure link for you to add your payment info directly, since we don't have access to that on our end. This will go through text and email.</p>
+
+            <button type="button" class="collapsible">💳 Card Objections</button>
+            <div class="collapsible-content">
+                <p><a href="https://docs.google.com/document/d/1wWcKZwpQi1GWmgfQMuv9czaVfRY5p35_RZJYwtlFLXQ/edit?tab=t.0" class="underline">Full Card Objections Guide</a></p>
+                <ul>
+                    <li>Security Issues
+                        <ul>
+                            <li>Stripe: highly secure and used by large businesses like Wal-Mart and Amazon (used by millions)</li>
+                            <li>We charge 3 days after completion.</li>
+                            <li>We sent email and app notifications as soon as the service is completed</li>
+                        </ul>
+                    </li>
+                    <li>Doesn't like recurring charges
+                        <ul>
+                            <li>We only charge if a service is completed.</li>
+                            <li>We sent email and app notifications as soon as the service is completed</li>
+                            <li>We only charge 3 days AFTER the service is done.</li>
+                        </ul>
+                    </li>
+                    <li>Likes to pay Cash or other method
+                        <ul>
+                            <li>Doesn't need to be home when the pro goes to do the work.</li>
+                            <li>3 day billing delay allows us to address any service issues before he is charged.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="https://docs.google.com/document/u/0/d/1zYj5gPDSAGpIz4CKGcdaF0HxFQtf1LjyYxaYEWC2BQw/edit" class="underline">BILLING RULES</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="closing" onchange="saveCheckboxState()">
+            <label for="closing">Closing</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li><a href="https://docs.google.com/document/u/0/d/1QxARtW0Wp6WnJbgCajo6eK6Gd18wDjSWCo_qQYVrXiA/edit" class="underline">RECAPS & CLOSING QA GUIDELINES</a></li>
+            </ul>
+
+            <p>Once the crew adds the job to their route, you will receive an email confirming your two-day window and letting you know a Pro picked the job up. At that point, you can message them directly!</p>
+
+            <p>You will also receive a text with a link to our app and a temporary password; your email will be your username.</p>
+
+            <ul>
+                <li><strong>Landline only customers:</strong>
+                    <ul>
+                        <li>To log onto the website, enter your email address and click the forgot your password option. You'll receive an email with a temporary password. Make sure to change the password once you log in.
+                            <ul>
+                                <li><strong>Websites</strong>
+                                    <ul>
+                                        <li>my.lawnstarter.com</li>
+                                        <li>my.lawnlove.com</li>
+                                        <li>my.homegnome.com</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>In your introduction email, you will see a button about recommending us on NextDoor. <strong>Do this and receive a $20 credit to your account</strong>.</p>
+
+            <p>Any other questions before I let you go?</p>
+
+            <p>Okay, if you do have other questions, be sure to reach out to our dedicated Support Team conveniently through the app or portal. Thank you for choosing LawnStarter / Lawn Love. Have a great day!</p>
+        </div>
+    </div>
+
+    <script>
+        // Load saved checkbox states when page loads
+        window.addEventListener('DOMContentLoaded', (event) => {
+            loadCheckboxStates();
+            initializeCollapsibles();
+        });
+
+        function saveCheckboxState() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const states = {};
+            checkboxes.forEach(checkbox => {
+                states[checkbox.id] = checkbox.checked;
+            });
+            localStorage.setItem('salesGuideCheckboxStates', JSON.stringify(states));
+        }
+
+        function loadCheckboxStates() {
+            const savedStates = localStorage.getItem('salesGuideCheckboxStates');
+            if (savedStates) {
+                const states = JSON.parse(savedStates);
+                Object.keys(states).forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = states[id];
+                    }
+                });
+            }
+        }
+
+        function resetChecklist() {
+            if (confirm('Are you sure you want to reset all checkboxes? This will uncheck all items.')) {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                localStorage.removeItem('salesGuideCheckboxStates');
+                alert('All checkboxes have been reset!');
+            }
+        }
+
+        function initializeCollapsibles() {
+            const collapsibles = document.querySelectorAll('.collapsible');
+            
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        content.classList.remove('show');
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        content.classList.add('show');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

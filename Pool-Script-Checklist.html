@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pool Script Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            font-size: 14.4px; /* Same as Sales Guide - 10% reduction from 16px */
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #16a085;
+            border-bottom: 3px solid #16a085;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #138d75;
+            margin-top: 25px;
+        }
+        .checkbox-item {
+            background-color: #e8f8f5;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #16a085;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        .checkbox-item label {
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer;
+            vertical-align: middle;
+            font-size: 14.4px; /* Same as Sales Guide */
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .button-container {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+            z-index: 100;
+        }
+        button {
+            background-color: #16a085;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12.6px; /* Same as Sales Guide */
+        }
+        button:hover {
+            background-color: #138d75;
+        }
+        .reset-btn {
+            background-color: #e74c3c;
+        }
+        .reset-btn:hover {
+            background-color: #c0392b;
+        }
+        .back-btn {
+            background-color: #3498db;
+        }
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        a {
+            color: #16a085;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <button onclick="window.close()" class="back-btn">← Back to Main BBS</button>
+            <button onclick="window.print()">🖨️ Print Checklist</button>
+            <button onclick="resetChecklist()" class="reset-btn">🔄 Reset All Checkboxes</button>
+        </div>
+
+        <h1>🏊 POOL Script Checklist</h1>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-introduction" onchange="saveCheckboxState()">
+            <label for="pool-introduction">Introduction Scenarios</label>
+        </div>
+        <div class="section">
+            <p><strong>Normal Call: Standard greeting</strong></p>
+            <p>Hello, this is <strong>(YOUR NAME)</strong> and thank you for calling LawnStarter / Lawn Love /HomeGnome. How are you? What services can I get started for you today?</p>
+
+            <p><strong>SMS Call: SMS Greeting <span class="highlight">(This is not a callback)</span></strong></p>
+            <p>Hi, this is ________ with LawnStarter/Lawn Love/HomeGnome, you were just texting my colleague and they asked me to give you a call. How can I help you?</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-acknowledge" onchange="saveCheckboxState()">
+            <label for="pool-acknowledge">Acknowledge the response and focus on the main interest</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Yes! We can take care of all of that!</li>
+                <li>I can help you with that.</li>
+                <li>Let me look into that for you.</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-phone-verification" onchange="saveCheckboxState()">
+            <label for="pool-phone-verification">Phone Verification</label>
+        </div>
+        <div class="section">
+            <p>Confirm the phone number in Five9.</p>
+            <p>Is this a landline or mobile phone number?</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-address-verification" onchange="saveCheckboxState()">
+            <label for="pool-address-verification">Address Verification</label>
+        </div>
+        <div class="section">
+            <p>Is this the correct address <strong>(house number, street name, zip code)</strong>?</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-intro-probing" onchange="saveCheckboxState()">
+            <label for="pool-intro-probing">Intro Probing Question (examples)</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>We actually offer a lot of other services besides (x). Is there anything else we can take care of while we're out there?</li>
+                <li>While I have you, are there any other yard projects you're thinking about --- like mulching, trimming, or maybe a cleanup?</li>
+                <li>Do you need help with anything else around the lawn? Things like bush trimming or tree care?<br>We've got options for more detailed work like landscaping and cleanups too --- is that something you'd be interested in down the line?</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-leading-questions" onchange="saveCheckboxState()">
+            <label for="pool-leading-questions">Leading Questions (not required)</label>
+        </div>
+        <div class="section">
+            <p>And how did you find out about us?</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-price-bucket" onchange="saveCheckboxState()">
+            <label for="pool-price-bucket">Price Bucket</label>
+        </div>
+        <div class="section">
+            <p>We also offer you a <strong>free mobile app & web login</strong> where you can request <strong>additional landscape services, make any change to your account, and it's the fastest way to contact our Support Team.</strong></p>
+
+            <p><a href="https://signup-web.homegnome.com/cart/contact-info?intent=poolCleaning&utm_source=sales" class="underline highlight">Pool Sign Up link for new HG customers only.</a></p>
+
+            <p><span class="highlight">LS/LL and Existing customers must have mowing or a standalone service to add Pool.</span></p>
+
+            <p><span class="highlight"><strong>Required:</strong> What is the current color of the pool? Is it clear, cloudy, or discolored (green, black)? Add the appropriate price based on the customer's answer:</span></p>
+
+            <p><span class="highlight"><strong>Florida Pricing</strong></span></p>
+            <ul>
+                <li><span class="highlight"><strong>Cloudy: $100</strong></span></li>
+                <li><span class="highlight"><strong>Green: $300</strong></span></li>
+                <li><span class="highlight"><strong>Black: $500</strong></span></li>
+            </ul>
+
+            <p><span class="highlight"><strong>Texas and Georgia Pricing</strong></span></p>
+            <ul>
+                <li><span class="highlight"><strong>Cloudy: $200</strong></span></li>
+                <li><span class="highlight"><strong>Green: $500</strong></span></li>
+                <li><span class="highlight"><strong>Black: $1000</strong></span></li>
+            </ul>
+
+            <p class="note underline highlight">Internal note for all platforms, (Anything other than clear requires a deep cleaning for the first service.)</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-policy-disclosure" onchange="saveCheckboxState()">
+            <label for="pool-policy-disclosure">Policy Disclosure (Verbatim)</label>
+        </div>
+        <div class="section">
+            <p><span class="highlight">"Quick heads-up: By booking, you agree to our Terms of Service.</span></p>
+            <p><span class="highlight">We just ask for at least 48 hours' notice if you ever need to change your schedule.</span></p>
+            <p><span class="highlight">You may get texts or calls about your service---you can opt out anytime.</span></p>
+            <p><span class="highlight">Full terms are at homegnome.com/terms."</span></p>
+            <p class="note underline highlight">Refer any questions to the link above.</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-frequency" onchange="saveCheckboxState()">
+            <label for="pool-frequency">Frequency</label>
+        </div>
+        <div class="section">
+            <p><span class="highlight">We currently have two plans for Pool Cleaning: <strong>Weekly Maintenance</strong> or <strong>Deep Clean (1 time) + Weekly Maintenance</strong>. Which would you prefer?</span></p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-48hr-notice" onchange="saveCheckboxState()">
+            <label for="pool-48hr-notice">48-HR Rescheduling Notice</label>
+        </div>
+        <div class="section">
+            <p><span class="highlight">If you ever need to reschedule your service, <strong>let us know 48 hrs before the next scheduled service.</strong></span></p>
+        </div>
+
+        <div class="section">
+            <h2>Cross-selling:</h2>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-leaf-removal" onchange="saveCheckboxState()">
+            <label for="pool-leaf-removal">Leaf Removal (IQ)</label>
+        </div>
+        <div class="section">
+            <p>Are there any leaves or small twigs on your lawn?</p>
+            <p><span class="highlight">When the customer states they need to be picked up schedule the IQ Cleanup</span></p>
+            <p>I can provide you with a quote for leaf cleanup now so that you have a clear expectation of the service without any surprises.</p>
+            <p><span class="highlight">If the customer declines the quote or states there is minimal debris</span></p>
+            <p><strong>Mow & Mulch Expectation:</strong> If the crew arrives and there's an excessive amount of leaves that need to be picked up before we can mow, we'll need to quote you for the cleanup, wait for your approval, which could prolong your service completion</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-lawn-treatment" onchange="saveCheckboxState()">
+            <label for="pool-lawn-treatment">Lawn Treatment (Only if available in Admin)</label>
+        </div>
+        <div class="section">
+            <p><span class="highlight">When assisting a customer in New York, covering this section is unnecessary.</span></p>
+            <p>Do you have weeds, brown grass or patchy/thinning grass?</p>
+            <p><span class="highlight">LAWN TREATMENT EDUCATION IS REQUIRED</span></p>
+            <p>The reason I asked is that we offer a lawn treatment package that has transformative benefits tailored to your lawn's unique needs.</p>
+            <p>The package includes fertilizer, weed control, and pre-emergent. This will help keep the grass healthy and green while killing existing weeds and preventing new weeds from sprouting up. For the best results, the service is delivered in 8 / 7 rounds of treatment per year; rendered every 4-6 weeks (6-8 weeks in Texas). You won't be charged until the service is completed. The price for each application is <strong>(PRICE)</strong>. Can I schedule this for you now? <strong>(set a 10-14 business day expectation)</strong></p>
+            <p><span class="highlight">ASK FOR THE SALE</span></p>
+            <p><span class="highlight"><strong>New York Customers</strong></span></p>
+            <p><span class="highlight">We currently only offer fertilization in your area. Would that work for you?</span></p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-lawn-mowing" onchange="saveCheckboxState()">
+            <label for="pool-lawn-mowing">Lawn Mowing</label>
+        </div>
+        <div class="section">
+            <p>I can also get you an instant quote for mowing. Would you like a price on that?<br><span class="highlight">Always offer a quote unless they say they don't have a lawn.</span></p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-instant-quote-pitch" onchange="saveCheckboxState()">
+            <label for="pool-instant-quote-pitch">(Instant Quote Pitch)</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>(Required: highlight that it's free and immediate)</li>
+                <li>Offer immediate pricing on Flower Beds AND Bush Trimming (and/or mowing if applicable)</li>
+            </ul>
+            <p><a href="https://docs.google.com/document/u/0/d/1f7_HVFXaLM9CVGgteyrnmPrrZvnHtoTUA1L5kEyQJDw/edit" class="underline">Flower bed Weeding Tips</a> <a href="https://docs.google.com/document/u/0/d/1MdgozzRh6EVwW7MdPoEehM4jn1dEfhx0pHT1G6k3duU/edit" class="underline">BUSH TRIMMING CROSS-SELLING TIPS</a></p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-additional-services" onchange="saveCheckboxState()">
+            <label for="pool-additional-services">Additional Services (If LTRS is not in Admin, cover MQ examples below)</label>
+        </div>
+        <div class="section">
+            <p>Besides the services we've discussed, in most areas we also offer free quotes on additional services such as grub treatment, lawn disease treatment, mosquito prevention, and much more. Would you like me to check these additional services to determine whether you qualify for a free quote?</p>
+        </div>
+
+        <div class="section">
+            <h2>MQ Examples</h2>
+            <p>Mulching, gutter cleaning, tree trimming, clean ups, Sod installation and other landscaping services</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-educational-statement" onchange="saveCheckboxState()">
+            <label for="pool-educational-statement">EDUCATIONAL STATEMENT</label>
+        </div>
+        <div class="section">
+            <p><strong>(IF NO)</strong> No worries! You can always add most of the additional services anytime via the app / portal. If a service isn't available there, our support team will be happy to assist you further.</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-verification" onchange="saveCheckboxState()">
+            <label for="pool-verification">Verification</label>
+        </div>
+        <div class="section">
+            <p>I have your email <strong>(PHONETICALLYSPELLEDOUT@ALWAYS.com)</strong></p>
+            <p><a href="https://www.thoughtco.com/nato-phonetic-alphabet-1691031" class="underline">Phonetic Alphabet</a></p>
+            <p>To confirm, just in case we have it wrong, your <strong>phone number is (___)___- ____.</strong></p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-property-details" onchange="saveCheckboxState()">
+            <label for="pool-property-details">Property Details</label>
+        </div>
+        <div class="section">
+            <p>Are there any pets that go outside or conduct their business outside?</p>
+            <p><strong>IF SO,</strong> During the time of service, pets should be secured.</p>
+            <p><span class="highlight">When the customer provides additional access details, please ensure to include them in the "Special Neighborhood Access" field on the work order. Let's also keep in mind the importance of being concise.</span></p>
+            <p>Is the property in a gated community?</p>
+            <p><strong>IF COMMUNITY GATE,</strong> is there a gate code or special instructions for accessing the gate?</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-order-recap" onchange="saveCheckboxState()">
+            <label for="pool-order-recap">Order Recap</label>
+        </div>
+        <div class="section">
+            <p><strong>Pool:</strong> To confirm, we are scheduling you for a weekly maintenance OR weekly maintenance + deep cleaning for <strong>(PRICE).</strong></p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-billing" onchange="saveCheckboxState()">
+            <label for="pool-billing">Billing</label>
+        </div>
+        <div class="section">
+            <p><strong>(Mentioning that they don't need to have money or only need $1 is an auto-fail)</strong></p>
+            <p>Perfect, all I need is a payment method to schedule you. We accept major credit and debit cards, and we won't charge you until 3 days after the service is complete.</p>
+            <p>I'm sending over a secure link for you to add your payment info directly, since we don't have access to that on our end. This will go through text and email.</p>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="pool-closing" onchange="saveCheckboxState()">
+            <label for="pool-closing">Closing</label>
+        </div>
+        <div class="section">
+            <p>Once the crew adds the job to their route, you will receive an email confirming your two-day window and letting you know a Pro picked the job up. At that point, you can message them directly!</p>
+            <p>You will also receive a text with a link to our app and a temporary password; your email will be your username.</p>
+            <ul>
+                <li><strong>Landline only customers:</strong>
+                    <ul>
+                        <li>To log onto the website, enter your email address and click the forgot your password option. You'll receive an email with a temporary password. Make sure to change the password once you log in.
+                            <ul>
+                                <li><strong>Websites</strong>
+                                    <ul>
+                                        <li>my.lawnstarter.com</li>
+                                        <li>my.lawnlove.com</li>
+                                        <li>my.homegnome.com</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>When you log in to your account, you'll be able to recommend us on NextDoor. <strong>Do this and receive a $20 credit to your account</strong>.</p>
+            <p>Any other questions before I let you go?</p>
+            <p>Okay, If you do have other questions, be sure to reach out to our dedicated Support Team conveniently through the app or portal. Thank you for choosing LawnStarter / Lawn Love / Homegnome, have a great day!</p>
+        </div>
+    </div>
+
+    <script>
+        // Load saved checkbox states when page loads
+        window.addEventListener('DOMContentLoaded', (event) => {
+            loadCheckboxStates();
+        });
+
+        function saveCheckboxState() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const states = {};
+            checkboxes.forEach(checkbox => {
+                states[checkbox.id] = checkbox.checked;
+            });
+            localStorage.setItem('poolCheckboxStates', JSON.stringify(states));
+        }
+
+        function loadCheckboxStates() {
+            const savedStates = localStorage.getItem('poolCheckboxStates');
+            if (savedStates) {
+                const states = JSON.parse(savedStates);
+                Object.keys(states).forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = states[id];
+                    }
+                });
+            }
+        }
+
+        function resetChecklist() {
+            if (confirm('Are you sure you want to reset all checkboxes? This will uncheck all items.')) {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                localStorage.removeItem('poolCheckboxStates');
+                alert('All checkboxes have been reset!');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC Call Script Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            font-size: 14.4px;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #27ae60;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #229954;
+            margin-top: 25px;
+        }
+        .checkbox-item {
+            background-color: #eafaf1;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #27ae60;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        .checkbox-item label {
+            font-weight: bold;
+            color: #2c3e50;
+            cursor: pointer;
+            vertical-align: middle;
+            font-size: 14.4px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .note {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .button-container {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+            z-index: 100;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12.6px;
+        }
+        button:hover {
+            background-color: #229954;
+        }
+        .reset-btn {
+            background-color: #e74c3c;
+        }
+        .reset-btn:hover {
+            background-color: #c0392b;
+        }
+        .back-btn {
+            background-color: #3498db;
+        }
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+        a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container">
+            <button onclick="window.close()" class="back-btn">← Back to Main BBS</button>
+            <button onclick="window.print()">🖨️ Print Checklist</button>
+            <button onclick="resetChecklist()" class="reset-btn">🔄 Reset All Checkboxes</button>
+        </div>
+
+        <h1>👥 EC Call Script (Existing Customer)</h1>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="ec-greeting" onchange="saveCheckboxState()">
+            <label for="ec-greeting">Greeting and Initial Inquiry</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Polite/welcoming greeting</li>
+                <li>Introduce yourself</li>
+                <li>Use correct Brand</li>
+                <li>Offer assistance or identify the interest of the caller.</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="ec-acknowledge" onchange="saveCheckboxState()">
+            <label for="ec-acknowledge">Acknowledge the request (Willingness)</label>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="ec-account-verification" onchange="saveCheckboxState()">
+            <label for="ec-account-verification">Account Verification</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Have the customer confirm their name, address, zip code</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="ec-details-expectations" onchange="saveCheckboxState()">
+            <label for="ec-details-expectations">Details and Expectations</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li><strong>IQ's</strong>
+                    <ul>
+                        <li>Ask all Admin Questions to identify the customers needs</li>
+                        <li>Provide the Price</li>
+                        <li>If accepted, explain scheduling</li>
+                    </ul>
+                </li>
+                <li><strong>LTRS</strong>
+                    <ul>
+                        <li>Explain what is included.</li>
+                        <li>Provide the price</li>
+                        <li>If accepted, explain scheduling</li>
+                    </ul>
+                </li>
+                <li><strong>MQ</strong>
+                    <ul>
+                        <li>Ask all necessary questions</li>
+                        <li>Explain the quote and acceptance process</li>
+                        <li>If accepted, explain scheduling</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Objection Handling:</h2>
+            <ul>
+                <li>Acknowledge the concern (Rapport)</li>
+                <li>Ask probing questions (when necessary)</li>
+                <li>Make an attempt to change the customer's mind, ideally by positioning the value of the service or platform.</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="ec-policies" onchange="saveCheckboxState()">
+            <label for="ec-policies">Policies</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li><strong>Added services:</strong> Explain the 48-hour scheduling policy and get understanding.</li>
+                <li><strong>New Properties:</strong> Remind of the Long Grass Policy</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="ec-cross-sales" onchange="saveCheckboxState()">
+            <label for="ec-cross-sales">Cross Sales</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Ask the customer if they need anything else done while we're out there, providing <span class="highlight">at least two examples of other services.</span></li>
+                <li>If accepted, cover <strong>Details and Expectations</strong> as necessary.</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="ec-recap-confirmation" onchange="saveCheckboxState()">
+            <label for="ec-recap-confirmation">Recap and Confirmation</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Summarize added services</li>
+                <li>Service Window: (1 day aligned with mowing, except for LT/LTRS)</li>
+                <li>Pricing</li>
+                <li>Next Steps (MQ)</li>
+            </ul>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="ec-closing" onchange="saveCheckboxState()">
+            <label for="ec-closing">Closing</label>
+        </div>
+        <div class="section">
+            <ul>
+                <li>Offer additional support; "Is there anything else I can help you with today?"</li>
+                <li>Thank the customer for calling "Brand".</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Load saved checkbox states when page loads
+        window.addEventListener('DOMContentLoaded', (event) => {
+            loadCheckboxStates();
+        });
+
+        function saveCheckboxState() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const states = {};
+            checkboxes.forEach(checkbox => {
+                states[checkbox.id] = checkbox.checked;
+            });
+            localStorage.setItem('ecCheckboxStates', JSON.stringify(states));
+        }
+
+        function loadCheckboxStates() {
+            const savedStates = localStorage.getItem('ecCheckboxStates');
+            if (savedStates) {
+                const states = JSON.parse(savedStates);
+                Object.keys(states).forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = states[id];
+                    }
+                });
+            }
+        }
+
+        function resetChecklist() {
+            if (confirm('Are you sure you want to reset all checkboxes? This will uncheck all items.')) {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                localStorage.removeItem('ecCheckboxStates');
+                alert('All checkboxes have been reset!');
+            }
+        }
+    </script>
+</body>
+</html>
