@@ -12,7 +12,7 @@
             padding: 20px;
             line-height: 1.6;
             background-color: #f5f5f5;
-            font-size: 14.4px; /* Same as Sales Guide */
+            font-size: 14.4px;
         }
         .container {
             background-color: white;
@@ -48,7 +48,7 @@
             color: #2c3e50;
             cursor: pointer;
             vertical-align: middle;
-            font-size: 14.4px; /* Same as Sales Guide */
+            font-size: 14.4px;
         }
         .section {
             margin: 20px 0;
@@ -95,7 +95,7 @@
             margin-right: 10px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 12.6px; /* Same as Sales Guide */
+            font-size: 12.6px;
         }
         button:hover {
             background-color: #8e44ad;
@@ -132,7 +132,7 @@
         <h1>📞 BBS Callback LS/LL</h1>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="number-address-verification" onchange="saveCheckboxState()">
+            <input type="checkbox" id="number-address-verification">
             <label for="number-address-verification">Number and Address Verification</label>
         </div>
         <div class="section">
@@ -140,7 +140,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="confirm-details" onchange="saveCheckboxState()">
+            <input type="checkbox" id="confirm-details">
             <label for="confirm-details">Confirm Details</label>
         </div>
         <div class="section">
@@ -156,7 +156,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="price-bucket" onchange="saveCheckboxState()">
+            <input type="checkbox" id="price-bucket">
             <label for="price-bucket">Price Bucket</label>
         </div>
         <div class="section">
@@ -167,7 +167,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="policy-disclosure" onchange="saveCheckboxState()">
+            <input type="checkbox" id="policy-disclosure">
             <label for="policy-disclosure">Policy Disclosure (Verbatim) if required</label>
         </div>
         <div class="section">
@@ -179,7 +179,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="leaf-removal" onchange="saveCheckboxState()">
+            <input type="checkbox" id="leaf-removal">
             <label for="leaf-removal">Leaf Removal (IQ)</label>
         </div>
         <div class="section">
@@ -191,7 +191,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="policies-acknowledgment" onchange="saveCheckboxState()">
+            <input type="checkbox" id="policies-acknowledgment">
             <label for="policies-acknowledgment">Policies Acknowledgment (Adjust as necessary)</label>
         </div>
         <div class="section">
@@ -203,7 +203,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="cross-sales" onchange="saveCheckboxState()">
+            <input type="checkbox" id="cross-sales">
             <label for="cross-sales">Cross Sales</label>
         </div>
         <div class="section">
@@ -211,7 +211,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="contact-information" onchange="saveCheckboxState()">
+            <input type="checkbox" id="contact-information">
             <label for="contact-information">Contact Information</label>
         </div>
         <div class="section">
@@ -227,7 +227,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="property-details" onchange="saveCheckboxState()">
+            <input type="checkbox" id="property-details">
             <label for="property-details">Property Details</label>
         </div>
         <div class="section">
@@ -244,7 +244,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="lawn-treatment-customers" onchange="saveCheckboxState()">
+            <input type="checkbox" id="lawn-treatment-customers">
             <label for="lawn-treatment-customers">Lawn Treatment Customers</label>
         </div>
         <div class="section">
@@ -253,7 +253,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="billing" onchange="saveCheckboxState()">
+            <input type="checkbox" id="billing">
             <label for="billing">Billing</label>
         </div>
         <div class="section">
@@ -265,7 +265,7 @@
         </div>
 
         <div class="checkbox-item">
-            <input type="checkbox" id="closing" onchange="saveCheckboxState()">
+            <input type="checkbox" id="closing">
             <label for="closing">Closing</label>
         </div>
         <div class="section">
@@ -292,50 +292,55 @@
                     </ul>
                 </li>
             </ul>
-            <p>When you log in to your account, you'll be able to recommend us on NextDoor. <strong>Do this and receive a $20 credit to your account</strong>.</p>
-            <ul>
-                <li><a href="https://docs.google.com/document/u/0/d/1HweYX-wxHar9NwZV3dZdu4dMdyeIc5TeGCn0x3pNYl8/edit" class="underline">NEXTDOOR PROMO RULES</a></li>
-            </ul>
             <p>Any other questions before I let you go?</p>
             <p>Okay, If you do have other questions, be sure to reach out to our dedicated Support Team conveniently through the app or portal. Thank you for choosing LawnStarter / Lawn Love / Homegnome, have a great day!</p>
         </div>
     </div>
 
     <script>
-        // Load saved checkbox states when page loads
-        window.addEventListener('DOMContentLoaded', (event) => {
-            loadCheckboxStates();
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const states = {};
+                checkboxes.forEach(cb => {
+                    states[cb.id] = cb.checked;
+                });
+                try {
+                    localStorage.setItem('callbackBBSCheckboxStates', JSON.stringify(states));
+                } catch (e) {
+                    console.log('Storage not available');
+                }
+            });
         });
 
-        function saveCheckboxState() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            const states = {};
-            checkboxes.forEach(checkbox => {
-                states[checkbox.id] = checkbox.checked;
-            });
-            localStorage.setItem('callbackBBSCheckboxStates', JSON.stringify(states));
-        }
-
-        function loadCheckboxStates() {
-            const savedStates = localStorage.getItem('callbackBBSCheckboxStates');
-            if (savedStates) {
-                const states = JSON.parse(savedStates);
-                Object.keys(states).forEach(id => {
-                    const checkbox = document.getElementById(id);
-                    if (checkbox) {
-                        checkbox.checked = states[id];
-                    }
-                });
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                const savedStates = localStorage.getItem('callbackBBSCheckboxStates');
+                if (savedStates) {
+                    const states = JSON.parse(savedStates);
+                    Object.keys(states).forEach(id => {
+                        const checkbox = document.getElementById(id);
+                        if (checkbox) {
+                            checkbox.checked = states[id];
+                        }
+                    });
+                }
+            } catch (e) {
+                console.log('Storage not available');
             }
-        }
+        });
 
         function resetChecklist() {
             if (confirm('Are you sure you want to reset all checkboxes? This will uncheck all items.')) {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
                 checkboxes.forEach(checkbox => {
                     checkbox.checked = false;
                 });
-                localStorage.removeItem('callbackBBSCheckboxStates');
+                try {
+                    localStorage.removeItem('callbackBBSCheckboxStates');
+                } catch (e) {
+                    console.log('Storage not available');
+                }
                 alert('All checkboxes have been reset!');
             }
         }
